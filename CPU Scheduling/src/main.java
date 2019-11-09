@@ -28,23 +28,34 @@ public class main {
 	}
 
 	public static void sjf() {
-
+		CPUScheduling sjf = new ShortestJobFirst();
+		sjf.add(new Process("P1", 1, 4));
+		sjf.add(new Process("P2", 3, 5));
+		sjf.add(new Process("P3", 6, 3));
+		sjf.add(new Process("P4", 0, 3));
+		sjf.add(new Process("P5", 13, 1));
+		sjf.add(new Process("P6", 6, 3));
+		sjf.add(new Process("P7", 6, 2));
+		sjf.process();
+		print(sjf);
 	}
 
 	public static void print(CPUScheduling obj) { // prints results
 		System.out.println(
-				"P - Process Name  AT - Arrival Time  BT - Burst Time  WT - Total Waiting Time  TT - Turnaround Time\n");
+				"P - Process Name  AT - Arrival Time  BT - Burst Time  WT - Total Waiting Time  TT - Turnaround Time  ST - Start Time  ET - End Time\n");
 
 		System.out.println("P\tAT\tBT\tWT\tTT");
 		for (Process P : obj.getProcesses()) {
 			System.out.println(P.getName() + "\t" + P.getArrivalTime() + "\t" + P.getBurstTime() + "\t"
 					+ P.getWaitingTime() + "\t" + P.getTurnaroundTime());
 		}
-		/*
-		 * for(int i = 0; i < obj.processes.size(); i++) { System.out.println( ); }
-		 */
 
-		System.out.println("Average Waiting time: " + obj.averageWaitingTime());
+		System.out.println("\nEvnets\nP\tST\tET");
+		for(Event E: obj.getEvent()) {
+			System.out.println(E.getName() + "\t" + E.getStartTime() + "\t" + E.getEndTime());
+		}
+		
+		System.out.println("\nAverage Waiting time: " + obj.averageWaitingTime());
 		System.out.println("Average Turnaround Time: " + obj.averageTurnaroundTime());
 	}
 

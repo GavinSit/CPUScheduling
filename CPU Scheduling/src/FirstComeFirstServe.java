@@ -3,6 +3,7 @@ import java.util.Comparator;
 import java.util.List;
 
 //Nonpreemptive First Come First Serve (FCFS)
+//runs whatever event arrives first
 public class FirstComeFirstServe extends CPUScheduling {
 	@Override
 	public void process() {
@@ -15,7 +16,7 @@ public class FirstComeFirstServe extends CPUScheduling {
 			if (eventList.isEmpty()) { // if no processes have been executed yet
 				// add event that starts at time 0 and runs instantly for the amount of burst
 				// time because no queue as it's the first item
-				eventList.add(new Event(P.getName(), P.getArrivalTime(), P.getBurstTime()));
+				eventList.add(new Event(P.getName(), P.getArrivalTime(), P.getArrivalTime() + P.getBurstTime()));
 			} else {
 				Event prevEvent = eventList.get(eventList.size() - 1); // need the time previous event ended
 				eventList

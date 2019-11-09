@@ -1,4 +1,5 @@
 // C3. Preemptive Shortest Job First (SRTF)
+//when new job arrives, checks for shortest job and runs shortest one first
 
 public class ShortestRemainingTimeFirst extends CPUScheduling {
 

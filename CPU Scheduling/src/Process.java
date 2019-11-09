@@ -15,6 +15,14 @@ public class Process {
 		this.burstTime = burstTime;
 	}
 	
+	public Process(String name, int arrivalTime, int burstTime, int priority) {
+		this.name = name;
+		this.arrivalTime = arrivalTime;
+		this.burstTime = burstTime;
+		this.priority = priority;
+	}
+
+	
 	
 	////////////////getter and setter////////////////
 	public String getName() { 
