@@ -8,18 +8,17 @@ public class Process {
 	private int arrivalTime; //time prcess arrives to CPU
 	private int burstTime; //time that is required by CPU to execute process
 	
+	//fcfs uses this constructor
 	public Process(String name, int arrivalTime, int burstTime) {
 		this.name = name;
 		this.arrivalTime = arrivalTime;
 		this.burstTime = burstTime;
 	}
 	
+	
+	////////////////getter and setter////////////////
 	public String getName() { 
 		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public int getTurnaroundTime() {
@@ -61,5 +60,6 @@ public class Process {
 	public void setBurstTime(int burstTime) {
 		this.burstTime = burstTime;
 	}
+////////////////end getter and setter////////////////
 	
 }
