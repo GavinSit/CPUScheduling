@@ -22,10 +22,10 @@ public class FirstComeFirstServe extends CPUScheduling {
 						.add(new Event(P.getName(), prevEvent.getEndTime(), prevEvent.getEndTime() + P.getBurstTime()));
 
 			}
-			// (process arrival time) - (CPU start execution time)
-			P.setWaitingTime(P.getArrivalTime() - eventList.get(eventList.size() - 1).getStartTime());
-			// (arrival time) - (CPU finish execution time);
-			P.setTurnaroundTime(P.getArrivalTime() + eventList.get(eventList.size() - 1).getEndTime());
+			// (CPU start execution time) - (process arrival time)
+			P.setWaitingTime(eventList.get(eventList.size() - 1).getStartTime() - P.getArrivalTime());
+			// (CPU finish execution time) - (arrival time);
+			P.setTurnaroundTime(eventList.get(eventList.size() - 1).getEndTime() - P.getArrivalTime());
 		}
 	}
 }

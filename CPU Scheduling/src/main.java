@@ -33,7 +33,7 @@ public class main {
 
 	public static void print(CPUScheduling obj) { // prints results
 		System.out.println(
-				"P - Process Name  AT - Arrival Time  BT - Burst Time  WT - Total Waiting Time  TT - Turnaround Time");
+				"P - Process Name  AT - Arrival Time  BT - Burst Time  WT - Total Waiting Time  TT - Turnaround Time\n");
 
 		System.out.println("P\tAT\tBT\tWT\tTT");
 		for (Process P : obj.getProcesses()) {
