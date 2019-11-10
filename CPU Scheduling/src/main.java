@@ -1,5 +1,5 @@
 
-public class main {
+public class main{
 
 	public static void main(String[] args) {
 		// TODO fill in the rest
@@ -8,7 +8,7 @@ public class main {
 		System.out.println("\nNonpreemptive Shortest Job First Scheduling");
 		sjf();
 		System.out.println("\nPreemptive Shortest Remaining Time First Scheduling");
-
+		//srtf(); doesnt work yet
 		System.out.println("\nNonpreemptive Priority Scheduling");
 
 		System.out.println("\nPreemptive Priority Scheduling");
@@ -39,6 +39,16 @@ public class main {
 		sjf.process();
 		print(sjf);
 	}
+	
+	public static void srtf() {
+		CPUScheduling srtf = new ShortestRemainingTimeFirst();
+		srtf.add(new Process("P1", 0, 8));
+		srtf.add(new Process("P2", 1, 4));
+		srtf.add(new Process("P3", 2, 9));
+		srtf.add(new Process("P4", 3, 5));
+		srtf.process();
+		print(srtf);
+	}
 
 	public static void print(CPUScheduling obj) { // prints results
 		System.out.println(
@@ -50,13 +60,13 @@ public class main {
 					+ P.getWaitingTime() + "\t" + P.getTurnaroundTime());
 		}
 
-		System.out.println("\nEvnets\nP\tST\tET");
+		System.out.println("\nEvents\nP\tST\tET");
 		for(Event E: obj.getEvent()) {
 			System.out.println(E.getName() + "\t" + E.getStartTime() + "\t" + E.getEndTime());
 		}
 		
 		System.out.println("\nAverage Waiting time: " + obj.averageWaitingTime());
-		System.out.println("Average Turnaround Time: " + obj.averageTurnaroundTime());
+		System.out.println("Average Turnaround Time: " + obj.averageTurnaroundTime() + "\n");
 	}
 
 }
