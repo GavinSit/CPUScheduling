@@ -8,7 +8,7 @@ public class main{
 		System.out.println("\nNonpreemptive Shortest Job First Scheduling");
 		sjf();
 		System.out.println("\nPreemptive Shortest Remaining Time First Scheduling");
-		//srtf(); doesnt work yet
+		srtf();
 		System.out.println("\nNonpreemptive Priority Scheduling");
 
 		System.out.println("\nPreemptive Priority Scheduling");

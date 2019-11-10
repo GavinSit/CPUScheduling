@@ -22,9 +22,9 @@ public abstract class CPUScheduling {
 		for (Process P : processes) {
 			sum += P.getWaitingTime();
 		}
-		sum = processes.size();
-
-		return Math.round(sum * 100.0) / 100.0; // returns sum rounded to 2 decimals
+		sum = sum /processes.size();
+		sum = Math.round(sum * 1000.0) / 1000.0; // round to 3 decimals
+		return sum;
 	}
 
 	public double averageTurnaroundTime() {
@@ -34,8 +34,8 @@ public abstract class CPUScheduling {
 			sum += P.getTurnaroundTime();
 		}
 		sum = sum / processes.size();
-
-		return Math.round(sum * 100.0) / 100.0; // returns sum rounded to 2 decimals
+		sum = Math.round(sum * 1000.0) / 1000.0; // round 3 decimals
+		return sum;
 	}
 
 	public List<Process> getProcesses() { // return processes

@@ -13,7 +13,7 @@ public class Event {
 	public String getName() {
 		return name;
 	}
-
+	
 	public int getStartTime() {
 		return startTime;
 	}
@@ -22,4 +22,9 @@ public class Event {
 		return endTime;
 	}
 
+	public void setEndTime(int endTime) {
+		this.endTime = endTime;
+	}
+
+	
 }
