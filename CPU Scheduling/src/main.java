@@ -10,9 +10,9 @@ public class main{
 		System.out.println("\nPreemptive Shortest Remaining Time First Scheduling");
 		srtf();
 		System.out.println("\nNonpreemptive Priority Scheduling");
-
+		npp();
 		System.out.println("\nPreemptive Priority Scheduling");
-
+		pp();
 		System.out.println("\nPreemptive Round-Robin Schedling");
 	}
 
@@ -49,7 +49,28 @@ public class main{
 		srtf.process();
 		print(srtf);
 	}
-
+	
+	public static void npp() {
+		CPUScheduling npp = new NonpreemptivePriority();
+		npp.add(new Process("P1", 0, 2, 4));
+		npp.add(new Process("P2", 0, 3, 1));
+		npp.add(new Process("P3", 0, 4, 2));
+		npp.add(new Process("P4", 0, 5, 3));
+		npp.process();
+		printp(npp);
+	}
+	
+	public static void pp() {
+		CPUScheduling npp = new PreemptivePriority();
+		npp.add(new Process("P1", 0, 8, 4));
+		npp.add(new Process("P2", 1, 4, 2));
+		npp.add(new Process("P3", 2, 9, 5));
+		npp.add(new Process("P4", 3, 5, 3));
+		npp.add(new Process("P5", 4, 3, 1));
+		npp.process();
+		printp(npp);
+	}
+	
 	public static void print(CPUScheduling obj) { // prints results
 		System.out.println(
 				"P - Process Name  AT - Arrival Time  BT - Burst Time  WT - Total Waiting Time  TT - Turnaround Time  ST - Start Time  ET - End Time\n");
@@ -58,6 +79,26 @@ public class main{
 		for (Process P : obj.getProcesses()) {
 			System.out.println(P.getName() + "\t" + P.getArrivalTime() + "\t" + P.getBurstTime() + "\t"
 					+ P.getWaitingTime() + "\t" + P.getTurnaroundTime());
+		}
+
+		System.out.println("\nEvents\nP\tST\tET");
+		for(Event E: obj.getEvent()) {
+			System.out.println(E.getName() + "\t" + E.getStartTime() + "\t" + E.getEndTime());
+		}
+		
+		System.out.println("\nAverage Waiting time: " + obj.averageWaitingTime());
+		System.out.println("Average Turnaround Time: " + obj.averageTurnaroundTime() + "\n");
+	}
+	
+
+	public static void printp(CPUScheduling obj) { // prints results
+		System.out.println(
+				"P - Process Name  AT - Arrival Time  BT - Burst Time  WT - Total Waiting Time  TT - Turnaround Time  ST - Start Time  ET - End Time  PR - Priority\n");
+
+		System.out.println("P\tAT\tBT\tWT\tTT\tPR");
+		for (Process P : obj.getProcesses()) {
+			System.out.println(P.getName() + "\t" + P.getArrivalTime() + "\t" + P.getBurstTime() + "\t"
+					+ P.getWaitingTime() + "\t" + P.getTurnaroundTime() + "\t" + P.getPriority());
 		}
 
 		System.out.println("\nEvents\nP\tST\tET");
