@@ -34,7 +34,6 @@ public class PreemptiveRoundRobin extends CPUScheduling {
 			}
 
 			if (!arrived.isEmpty()) {// if there is something arrived
-				System.out.println(index);
 				if (arrived.get(index).getBurstTime() <= timeQuantum) { // if burst time is shorter than or equal to
 																		// timequantum
 					eventList.add(
