@@ -1,4 +1,11 @@
 //C6. Preemptive Round Robin SCheduling (RR)
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class PreemptiveRoundRoblin extends CPUScheduling{
 
 	List<Row> rows = Utility.deepCopy(this.getRows());
