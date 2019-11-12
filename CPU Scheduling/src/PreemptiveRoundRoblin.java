@@ -26,8 +26,8 @@ public class PreemptiveRoundRoblin extends CPUScheduling{
 			{
 				if(rows.get(i).getArrivalTime()>time)
 				{
-				rows.add(i,row);
-				break;
+					rows.add(i,row);
+					break;
 				}
 				else if (i==rows.size()-1)
 				{
