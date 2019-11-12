@@ -39,7 +39,7 @@ public class PreemptiveRoundRobin extends CPUScheduling {
 																		// timequantum
 					eventList.add(
 							new Event(arrived.get(index).getName(), time, time + arrived.get(index).getBurstTime()));
-					time += arrived.get(index).getBurstTime();
+					time += arrived.get(index).getBurstTime(); // increment time
 
 					int j = index(processes, arrived.get(index).getName());
 
@@ -53,7 +53,7 @@ public class PreemptiveRoundRobin extends CPUScheduling {
 							break;
 						}
 					}
-					arrived.remove(index);
+					arrived.remove(index); // remove finished item
 					processes.remove(j);
 					if (index > arrived.size() - 1) {// if at end of arrived
 						index = 0;
@@ -62,7 +62,8 @@ public class PreemptiveRoundRobin extends CPUScheduling {
 				} else {// if burst time > that time quantum
 					eventList.add(new Event(arrived.get(index).getName(), time, time + timeQuantum));
 					arrived.get(index).setBurstTime(arrived.get(index).getBurstTime() - timeQuantum);
-					time += timeQuantum;
+					time += timeQuantum; // incrememnt time
+
 					if (index >= arrived.size() - 1) { // reset if reached the end of arrived processes
 						index = 0;
 					} else if (index < arrived.size() - 2) {
@@ -73,7 +74,6 @@ public class PreemptiveRoundRobin extends CPUScheduling {
 				index = 0;
 			}
 		}
-
 	}
 
 	private int index(List<Process> P, String name) {// assumes that process name is valid and unique
