@@ -9,13 +9,13 @@ import java.utli.time;
 
 public class PreemptiveRoundRoblin extends CPUScheduling{
 
-	List<Row> rows = Utility.deepCopy(this.getRows());
+	List<Process> rows = Utility.deepCopy(this.getRows());
 	int time =0;
 	int timeQuantum = this.getTimeQuantum();
 	
 	while(!rows.isEmpty())
 	{
-		Row row = rows.get(0);
+		Process row = rows.get(0);
 		
 		if(time<row.getArrivalTime())
 		{
