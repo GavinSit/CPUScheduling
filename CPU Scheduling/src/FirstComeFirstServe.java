@@ -8,7 +8,7 @@ public class FirstComeFirstServe extends CPUScheduling {
 	@Override
 	public void process() {
 		// sort by arrival time to execute
-		Collections.sort(this.getProcesses(), Comparator.comparingInt(Process::getArrivalTime));
+		Collections.sort(this.getProcesses(), Comparator.comparingInt(Process::getArrivalTime)); 
 
 		List<Event> eventList = this.getEvent();
 

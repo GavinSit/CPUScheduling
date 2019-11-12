@@ -12,8 +12,9 @@ public class main{
 		System.out.println("\nNonpreemptive Priority Scheduling");
 		npp();
 		System.out.println("\nPreemptive Priority Scheduling");
-		pp();
-		System.out.println("\nPreemptive Round-Robin Schedling");
+		pp(); 
+		System.out.println("\nPreemptive Round-Robin Scheduling");
+		rr();
 	}
 
 	public static void fcfs() {
@@ -69,6 +70,16 @@ public class main{
 		npp.add(new Process("P5", 4, 3, 1));
 		npp.process();
 		printp(npp);
+	}
+	
+	public static void rr()	{
+		CPUScheduling rr = new PreemptiveRoundRobin();
+		rr.setTimeQuantum(4);
+		rr.add(new Process("P1", 0, 24));
+		rr.add(new Process("P2", 0, 3));
+		rr.add(new Process("P3", 0, 3));		
+		rr.process();
+		print(rr);
 	}
 	
 	public static void print(CPUScheduling obj) { // prints results

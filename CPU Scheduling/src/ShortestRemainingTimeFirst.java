@@ -14,8 +14,6 @@ public class ShortestRemainingTimeFirst extends CPUScheduling {
 		List<Process> P = Copy.deepCopy(this.getProcesses());
 		Collections.sort(P, Comparator.comparingInt(Process::getArrivalTime)); // sort by arrival time
 		int index; // stores index of P where a name is found
-		int burstTime; // stores burstTime
-		int nextArr = P.get(1).getArrivalTime(); // gets the arrival time of next item so that it can check again
 		int time = P.get(0).getArrivalTime(); // stores the time
 
 		while (!P.isEmpty()) {
@@ -58,41 +56,6 @@ public class ShortestRemainingTimeFirst extends CPUScheduling {
 				P.remove(index);
 			}
 
-			/*
-			 * if (eventList.isEmpty()) { // first event if (arrived.get(0).getBurstTime()
-			 * <= nextArr) { // if burst time is <= to the arrival of next process
-			 * eventList.add(new Event(arrived.get(0).getName(),
-			 * arrived.get(0).getArrivalTime(), arrived.get(0).getBurstTime())); index =
-			 * index(P, arrived.get(0).getName()); // gets index of name in P
-			 * P.get(index).setBurstTime(0);
-			 * 
-			 * } else { // if the next process arrives before it finishes eventList.add(new
-			 * Event(arrived.get(0).getName(), arrived.get(0).getArrivalTime(), nextArr));
-			 * index = index(P, arrived.get(0).getName()); // gets index of name in P
-			 * burstTime = arrived.get(0).getBurstTime();
-			 * P.get(index).setBurstTime(burstTime - (nextArr -
-			 * eventList.get(eventList.size()-1).getStartTime())); }
-			 * 
-			 * } else { // not first event Event prevEvent = eventList.get(eventList.size()
-			 * - 1); // need the time previous event ended if (arrived.get(0).getBurstTime()
-			 * <= nextArr) { // if burst time is <= to arrival of next process
-			 * eventList.add(new Event(arrived.get(0).getName(), prevEvent.getEndTime(),
-			 * prevEvent.getEndTime() + arrived.get(0).getBurstTime())); index = index(P,
-			 * arrived.get(0).getName()); P.get(index).setBurstTime(0);
-			 * 
-			 * } else {//if the next process arrives before it finishes eventList.add(new
-			 * Event(arrived.get(0).getName(), prevEvent.getEndTime(), nextArr)); index =
-			 * index(P, arrived.get(0).getName()); burstTime =
-			 * arrived.get(0).getBurstTime(); P.get(index).setBurstTime(burstTime - (nextArr
-			 * - eventList.get(eventList.size()-1).getStartTime())); } }
-			 */
-
-			/*
-			 * for (int i = 0; i < P.size(); i++) { // remove process that is finished // if
-			 * process is equal and no more CPU processing needed if
-			 * (P.get(i).getName().equals(arrived.get(0).getName()) &&
-			 * arrived.get(0).getBurstTime() == 0) { P.remove(i); break; } }
-			 */
 		}
 	}
 

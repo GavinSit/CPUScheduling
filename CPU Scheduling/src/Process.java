@@ -8,13 +8,14 @@ public class Process {
 	private int arrivalTime; //time prcess arrives to CPU
 	private int burstTime; //time that is required by CPU to execute process
 	
-	//fcfs uses this constructor
+	//fcfs, sjf, prtf, rr uses this constructor
 	public Process(String name, int arrivalTime, int burstTime) {
 		this.name = name;
 		this.arrivalTime = arrivalTime;
-		this.burstTime = burstTime;
+		this.burstTime = burstTime; 
 	}
 	
+	//npp and pp use this constructor
 	public Process(String name, int arrivalTime, int burstTime, int priority) {
 		this.name = name;
 		this.arrivalTime = arrivalTime;
@@ -22,8 +23,6 @@ public class Process {
 		this.priority = priority;
 	}
 
-	
-	
 	////////////////getter and setter////////////////
 	public String getName() { 
 		return name;
@@ -69,5 +68,4 @@ public class Process {
 		this.burstTime = burstTime;
 	}
 ////////////////end getter and setter////////////////
-	
 }
